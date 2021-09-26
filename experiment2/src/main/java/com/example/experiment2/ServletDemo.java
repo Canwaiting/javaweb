@@ -1,32 +1,28 @@
 package com.example.experiment2;
 
-import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-public class ServletDemo implements Servlet {
-    @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
+@WebServlet(name = "just", value = "/ServletDemo")
+public class ServletDemo extends HttpServlet {
+    private String message;
 
+    public void init() { message = "we are in the ServletDemo"; }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
+
+        // Hello
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>" + message + "</h1>");
+        out.println("</body></html>");
     }
 
-    @Override
-    public ServletConfig getServletConfig() {
-        return null;
-    }
-
-    @Override
-    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        System.out.println("this is a Service Test");
-
-    }
-
-    @Override
-    public String getServletInfo() {
-        return null;
-    }
-
-    @Override
     public void destroy() {
-
     }
 }

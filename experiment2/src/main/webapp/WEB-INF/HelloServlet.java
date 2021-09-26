@@ -5,11 +5,12 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
+//@WebServlet("/HelloServlet")
 public class HelloServlet extends HttpServlet {
     private String message;
 
     public void init() {
-        message = "this is in the Experiment";
+        message = "Hello World!";
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
