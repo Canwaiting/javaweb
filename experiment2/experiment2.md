@@ -18,7 +18,6 @@ graph LR
 网页--ID-->servlet1-->servlet2--information-->网页
 ```
 ###todo
-__把表单中的数据与本地信息比对__
 + 表单里传进来的数据是什么类型的__  //获取为string
 + 使其为string__ //不用
 + 使其成功能与本地信息比对
@@ -26,13 +25,14 @@ __把表单中的数据与本地信息比对__
 
 ##实现3 
 ###需求分析
-目的:实现两个servlet同时运行
 ```mermaid
 graph LR
-网页---->servlet1---->网页
-网页---->servlet2---->网页
-
+网页
+--ID-->UserServlet
+--Info-->OrderServlet
+--UserInfo+OrderInfo-->网页
 ```
+
 
 ##知识总结:
 __tomcatconfigurations中点击deployment后的application context作用__
@@ -67,6 +67,7 @@ value等价于 urlPatterns 属性，与该属性不能同时使用
 @webServlet(value = "/name")
 最终又可以省略
 @webServlet("/name")
+
 
 
 
