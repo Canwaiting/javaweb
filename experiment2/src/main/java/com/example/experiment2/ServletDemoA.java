@@ -28,7 +28,7 @@ public class ServletDemoA extends HttpServlet {
         ID =ID.trim();
 //        System.out.println(obj.getClass().getName());
         String info = "";
-        response.setContentType("text/html"); //todo
+        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         if(ID.equals("001")){
             //transfer the request

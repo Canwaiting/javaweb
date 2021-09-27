@@ -1,8 +1,26 @@
 #experiment2
 ##实现1
 ###需求分析
-目的:实现servlet对象的数据共享
-创建两个Servlet，第一个用于存储被访问次数，第二个用于显示前面Servlet被访问的次数。
+访问servlet1，然后记录访问的次数，然后访问servlet2的时候，可以看到访问的次数
+```mermaid
+graph LR
+网页
+--访问-->Servlet1
+--发送统计数量--> Servlet2
+--展示-->网页
+网页--访问-->Servlet2
+```
+
+###todo
+__servlet2怎么样知道servlet1被访问多少次__
+方法:
+1. servlet1发送信息给servlet2 //不用
+2. servlet1和servlet2中有一个东西是大家都可以读取的，然后servlet1被访问一次就+1 //用
++ 创建一个ServletContext
++ 每一次启动servlet1就加1
++ 在servlet2中获取servletContext，然后输出界面
+
+
 
 
 ##实现2
@@ -68,7 +86,16 @@ value等价于 urlPatterns 属性，与该属性不能同时使用
 最终又可以省略
 @webServlet("/name")
 
+__多个Servlet中共享数据__
+通过ServletContext功能
+只要在某个Servlet中创建了该对象，你的服务器中的所有servlet都可以共用这一个对象
 
+__response.setContentType("text/html");__
+MIME类型
+text/html意思是这个text是以html的格式存在
+如同image/jpg，这个image是以jpg形式存在
 
-
-
+__如何使其ServletContext中的对象每次访问都+1__
+解决方法:在Servlet中定义静态变量，然后在doget方法中++。
+首先我混淆了servlet和doget，servlet是一个类，然后doget是其中的一个方法，静态变量是无法在方法中定义的。只能在类中定义。
+网页每一次访问我们的servlet都是向该servlet发送请求，所以访问一次，toget方法就运行一次，匹配于++。然后我需要一个不随着访问次数变化而变化的变量，就选择了静态变量。

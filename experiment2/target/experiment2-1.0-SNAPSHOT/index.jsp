@@ -9,5 +9,9 @@
 </h1>
 <br/>
 <a href="matchInfo.html">Login Your ID</a>
+<br>
+<a href ="/ShowTimesServlet">ShowTimesServlet</a>
+<br>
+<a href ="/CountTimesServlet">CountTimesServlet</a>
 </body>
 </html>
