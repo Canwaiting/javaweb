@@ -1,5 +1,8 @@
 package com.example.experiment2;
 
+import org.junit.Test;
+import org.w3c.dom.ls.LSOutput;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,22 +19,24 @@ public class ServletDemo extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        Object obj = request.getParameter("ID");
         String ID = request.getParameter("ID");
+//        String matchID = "001";
         ID =ID.trim();
-        System.out.println(ID);
-        String information = "";
+//        System.out.println(obj.getClass().getName());
+        String info = "";
         response.setContentType("text/html"); //todo
         PrintWriter out = response.getWriter();
-        if(ID=="001"){
-            information = "查询编号为001的用户信息如下:\n"
-                        + "用户名为:张三\n"
-                        + "用户年龄:20\n";
+        if(ID.equals("001")){
+            info = "查询编号为001的用户信息如下:<br>"
+                        + "用户名为:张三<br>"
+                        + "用户年龄:20<br>";
         }
         else{
-            information = "查询不到该用户的信息";
+            info = "查询不到该用户的信息";
         }
         out.println("<html><body>");
-        out.println("<h1>" + information + "</h1>");
+        out.println("<a>" + info + "</a>");
         out.println("</body></html>");
 
     }
@@ -39,3 +44,4 @@ public class ServletDemo extends HttpServlet {
     public void destroy() {
     }
 }
+
