@@ -67,5 +67,11 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.4.1" level="project" />
+    <orderEntry type="library" name="Maven: in.yajnesh.util:java-util:1.0.0" level="project" />
+    <orderEntry type="library" name="jstl-impl" level="project" />
+    <orderEntry type="library" name="javax.servlet.jsp.jstl" level="project" />
   </component>
 </module>
