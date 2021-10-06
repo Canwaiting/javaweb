@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Book implements Serializable {
     //todo 网站上说不用管
     //todo 不知道有什么用 序列化进出的数据流
-    //private static final implements SerialVersionUID = 1L;
+    private static final long SerialVersionUID = 1L;
     private String id;
     private String name;
     public Book(){

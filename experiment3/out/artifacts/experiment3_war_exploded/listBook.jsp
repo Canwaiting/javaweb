@@ -10,9 +10,10 @@
 <body>
 <p>本站提供的图书有：</p>
 <%
+    final long SerialVersionUID = 1L;
     Collection<Book> books = BookDB.getAll();
     for(Book book:books){
-        String url = "#" + book.getId();
+        String url = "Purchase.jsp?id=" + book.getId();
         out.print(book.getName() + "<a href='" + url + "'>点击购买</a><br/>");
     }
 %>

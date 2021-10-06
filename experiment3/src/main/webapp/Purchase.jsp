@@ -13,7 +13,6 @@
     String id = request.getParameter("id");
     //*没有 则返回首页
     if(id==null){
-        //todo 可能不是这个格式
         String url = "listBook.jsp";
         response.sendRedirect(url);
         return;
@@ -34,7 +33,7 @@
     cookie.setPath("/experiment3"); //使得cookie只能被该项目所用
     response.addCookie(cookie);
     //*最后返回购物车页面
-    String url = "cart";
+    String url = "cart.jsp";
     response.sendRedirect(url);
 %>
 
