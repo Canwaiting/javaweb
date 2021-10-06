@@ -20,7 +20,7 @@ public class BookDB {
     public static Collection<Book> getAll(){
         return books.values();
     }
-    //按照id获取单个图书的名称
+    //按照id获取单个图书
     public static Book getBook(String id){
         return books.get(id);
     }
