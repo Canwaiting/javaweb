@@ -5,6 +5,24 @@
 </head>
 <body>
 <%--<form action="/LoginServlet" method="post">--%>
+<%
+    //判断是否有cookie
+    Cookie[] cookies = request.getCookies();
+    if(cookies!= null && cookies.length >0){
+        for(Cookie cookie:cookies){
+            String name = cookie.getName();
+            if(name.equals("autologin")){
+//                System.out.println("autologin");
+//                response.setHeader("refresh","URL=/experiment3/LoginServlet");
+            }
+            else{
+                System.out.println("no cookie");
+
+            }
+        }
+    }
+%>
+
 <form action="/experiment3/LoginServlet" method="post">
     <%--输入框--%>
     用户名:<input type="text" name="username"><br/>

@@ -28,6 +28,9 @@ public class LoginServlet extends HttpServlet {
             //判断是否选了自动登录
             if(autologin.equals("on")){
                 //发送cookies
+                Cookie cookie = new Cookie("autologin","on");
+                cookie.setMaxAge(60*10);
+                response.addCookie(cookie);
             }
             //输出成功的界面
             String str = "欢迎张三，您已登录";
