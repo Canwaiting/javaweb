@@ -18,7 +18,6 @@
         purFlag=false;
     }
     else{
-        //todo 类型没有控制好
         cart = (List) session.getAttribute("cart");
         if(cart==null){
             purFlag=false;

@@ -20,12 +20,14 @@
 
     //*有  把图书放进购物车并创建新的cookie
     Book book = BookDB.getBook(id);
+    @SuppressWarnings("unchecked")
     List<Book> cart = (List) session.getAttribute("cart"); //获取你的购物车
     //**判断是否需要创建创建购物车
     if(cart==null){
         //todo 是否可以和上面的List进行优化
         cart = new ArrayList<Book>();
-        session.setAttribute("cart",book);
+        cart.add(book);
+        session.setAttribute("cart",cart);
     }
     cart.add(book);
     Cookie cookie = new Cookie("JSESSION",session.getId()); //保证是同一次会话
