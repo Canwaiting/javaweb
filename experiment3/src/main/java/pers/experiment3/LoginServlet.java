@@ -28,11 +28,10 @@ public class LoginServlet extends HttpServlet {
             //判断是否选了自动登录
             if(autologin.equals("on")){
                 //发送cookies
-                System.out.println("the button is on");
             }
             //输出成功的界面
             String str = "欢迎张三，您已登录";
-            String url = "<a href=\"#\">退出</a>";
+            String url = "<a href=\"login.jsp\">退出</a>";
             out.write(str+url);
             System.out.println("case 1");
         }
@@ -46,24 +45,9 @@ public class LoginServlet extends HttpServlet {
                 out.write(str);
 
             }
-
+            response.setHeader("refresh","3;URL=login.jsp");
+//            System.out.println("发生了重定向");
         }
-
-//        switch (1){
-//            //用户名正确
-//            case 1:
-//                break;
-//            //用户名正确且自动登录
-//            //用户名错误
-//            case 2:
-//                break;
-//            case 3:
-//                break;
-//            //没有填写东西
-//            case 4:
-//                break;
-//        }
-//        //显示成功的页面
 
     }
 
