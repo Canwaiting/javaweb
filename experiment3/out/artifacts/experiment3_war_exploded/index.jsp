@@ -9,5 +9,7 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
+<a href="listBook.jsp">购买书籍</a>
+<a href="login.jsp">登录</a>
 </body>
 </html>
