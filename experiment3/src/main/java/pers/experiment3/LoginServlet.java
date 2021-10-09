@@ -17,26 +17,36 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         //获取表单里面的东西
         String username = request.getParameter("username");
+        String id = request.getParameter("id");
+        System.out.println("idid");
+        System.out.println(id);
+        System.out.println("idid");
         String autologin = "on";
         //处理为空的情况
-        if(request.getParameter("autologin")==null){
-            autologin ="off";
+        System.out.println("autologin:");
+        System.out.println(request.getParameter("autologin"));
+        System.out.println("id:");
+        System.out.println(request.getParameter("id"));
+        if(request.getParameter("autologin")==null&&request.getParameter("id")==null){
+            autologin ="off"; //既不自动登录 又没有自动登录的状态
         }
-        System.out.println("\""+username+"\""); //String
-        System.out.println(autologin); //on null
-        if(username.equals("张三")){
+//        System.out.println(autologin); //on null
+//        System.out.println(id); //on null
+//        System.out.println("\""+username+"\""); //String
+        if(username.equals("张三")||id.equals("1")){
             //判断是否选了自动登录
             if(autologin.equals("on")){
                 //发送cookies
                 Cookie cookie = new Cookie("autologin","on");
-                cookie.setMaxAge(60*10);
+                //todo 先把这个关掉做测试
+                cookie.setMaxAge(10);
+//                cookie.setMaxAge(60*10);
                 response.addCookie(cookie);
             }
             //输出成功的界面
             String str = "欢迎张三，您已登录";
             String url = "<a href=\"login.jsp\">退出</a>";
             out.write(str+url);
-            System.out.println("case 1");
         }
         else{
             if(username.equals("")){

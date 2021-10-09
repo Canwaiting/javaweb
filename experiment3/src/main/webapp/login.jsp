@@ -12,15 +12,15 @@
         for(Cookie cookie:cookies){
             String name = cookie.getName();
             if(name.equals("autologin")){
-                //todo如果有cookie应该干嘛
-//                System.out.println("autologin");
-//                response.setHeader("refresh","URL=/experiment3/LoginServlet");
+                System.out.println("autologin");
+                //这一行没有跳转 也不能获取id
+                response.setHeader("refresh","0;URL=/experiment3/LoginServlet?id=1");
             }
-            else{
-                //todo怎么才能把表示框在里面
-                System.out.println("no cookie");
-
-            }
+//            else{
+//                //todo怎么才能把表示框在里面
+////                System.out.println("no cookie");
+//
+//            }
         }
     }
 %>
