@@ -11,7 +11,14 @@
     <title>Title</title>
 </head>
 <body>
-hello world
+<div style="font-size: 30px">
+    <a href="showinfo.jsp">信息采集</a><br/>
+    <a href="useJavaBean.jsp">使用JavaBean</a><br/>
+    <a href="foreach1.jsp">迭代1</a><br/>
+    <a href="foreach2.jsp">迭代2</a><br/>
+    <a href="foreach3.jsp">迭代3</a><br/>
+</div>
+
 
 </body>
 </html>
