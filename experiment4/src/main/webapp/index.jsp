@@ -12,7 +12,7 @@
 </head>
 <body>
 <div style="font-size: 30px">
-    <a href="showinfo.jsp">信息采集</a><br/>
+    <a href="info.jsp">信息采集</a><br/>
     <a href="useJavaBean.jsp">使用JavaBean</a><br/>
     <a href="foreach1.jsp">迭代1</a><br/>
     <a href="foreach2.jsp">迭代2</a><br/>
