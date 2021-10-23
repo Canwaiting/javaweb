@@ -14,9 +14,8 @@
 <div style="font-size: 30px">
     <a href="info.jsp">信息采集</a><br/>
     <a href="useJavaBean.jsp">使用JavaBean</a><br/>
-    <a href="foreach1.jsp">迭代1</a><br/>
-    <a href="foreach2.jsp">迭代2</a><br/>
-    <a href="foreach3.jsp">迭代3</a><br/>
+    <a href="foreachGather.jsp">各种集合迭代</a><br/>
+    <a href="foreachStatus.jsp">迭代的状态</a><br/>
 </div>
 
 
