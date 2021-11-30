@@ -4,12 +4,24 @@
     <meta charset="utf-8">
     <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+        .active{
+            border: 1px solid red;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         <button @click="sub">-</button>
         <span>{{num}}</span>
         <button @click="add">+</button>
+    </div>
+
+    <div id="app_show">
+        <button @click="changeisShow">img</button>
+        <button @click="changeText">Text</button>
+        <img v-show="isShow" src="img/girl.png" v-bind:title="imgTitle+',i love'" alt="">
+        <p v-if="isShowText" :class="{active:isActive}" @click="toggleActive">Hello world</p>
     </div>
 
     <script>
@@ -36,6 +48,31 @@
                     }
                 }
             },
+        })
+
+        var app_show = new Vue({
+            el:'#app_show',
+            data:{
+                isShow:false,
+                isShowText:false,
+                isActive:false,
+                imgTitle:"girl",
+            },
+            methods: {
+                changeisShow:function(){
+                    this.isShow = !this.isShow;
+                },
+                changeText:function(){
+                    this.isShowText = !this.isShowText;
+                },
+                toggleActive:function(){
+                    this.isActive = !this.isActive;
+
+                },
+
+            }
+
+
         })
     </script>
 </body>
