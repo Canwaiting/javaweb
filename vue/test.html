@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <title>Vue-Test</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <style>
         .active{
@@ -22,6 +22,12 @@
         <button @click="changeText">Text</button>
         <img v-show="isShow" src="img/girl.png" v-bind:title="imgTitle+',i love'" alt="">
         <p v-if="isShowText" :class="{active:isActive}" @click="toggleActive">Hello world</p>
+    </div>
+
+    <div id="app_img">
+        <button @click="img_prev">prev</button>
+        <button @click="img_next">next</button>
+        <img :src="imgArr[index]"/>
     </div>
 
     <script>
@@ -73,6 +79,49 @@
             }
 
 
+        })
+
+        var app_img = new Vue({
+            el:'#app_img',
+            data:{
+                imgArr:[
+                    "./img/01.png",
+                    "./img/02.png",
+                    "./img/03.png",
+                    "./img/04.png",
+                    "./img/05.png",
+                    "./img/06.png",
+                    "./img/07.png",
+                    "./img/08.png",
+                    "./img/09.png",
+                    "./img/10.png",
+                    "./img/11.png",
+                ],
+                index:0
+
+            },
+            methods:{
+                img_prev:function(){
+                    if(this.index>0){
+                        this.index--;
+                    }
+                    else{
+                        alert("min");
+                    }
+
+
+                },
+                img_next:function(){
+                    if(this.index<11){
+                        this.index++;
+                    }
+                    else{
+                        alert("Max");
+                    }
+
+                },
+
+            },
         })
     </script>
 </body>
