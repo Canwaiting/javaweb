@@ -11,24 +11,37 @@
     </style>
 </head>
 <body>
-    <div id="app">
-        <button @click="sub">-</button>
-        <span>{{num}}</span>
-        <button @click="add">+</button>
+    <div id="app_list">
+        <ul>
+            <li v-for="item in arr">
+                {{item}}
+            </li>
+            <li v-for="(it,index) in drink">
+                {{index+1}}--{{it.name}}
+
+            </li>
+        </ul>
+
     </div>
 
-    <div id="app_show">
-        <button @click="changeisShow">img</button>
-        <button @click="changeText">Text</button>
-        <img v-show="isShow" src="img/girl.png" v-bind:title="imgTitle+',i love'" alt="">
-        <p v-if="isShowText" :class="{active:isActive}" @click="toggleActive">Hello world</p>
+    <div id="app_log">
+        <input type="button" value="press" @click="doIt('hello','world')">
     </div>
 
-    <div id="app_img">
-        <button @click="img_prev">prev</button>
-        <button @click="img_next">next</button>
-        <img :src="imgArr[index]"/>
-    </div>
+<!--    <div id="app"><button @click="sub">-</button><span>{{num}}</span><button @click="add">+</button></div>-->
+
+<!--    <div id="app_show">-->
+<!--        <button @click="changeisShow">img</button>-->
+<!--        <button @click="changeText">Text</button>-->
+<!--        <img v-show="isShow" src="img/girl.png" v-bind:title="imgTitle+',i love'" alt="">-->
+<!--        <p v-if="isShowText" :class="{active:isActive}" @click="toggleActive">Hello world</p>-->
+<!--    </div>-->
+
+<!--    <div id="app_img">-->
+<!--        <button @click="img_prev">prev</button>-->
+<!--        <button @click="img_next">next</button>-->
+<!--        <img :src="imgArr[index]"/>-->
+<!--    </div>-->
 
     <script>
         var app = new Vue({
@@ -122,6 +135,34 @@
                 },
 
             },
+        })
+
+        var app_list = new Vue({
+            el:'#app_list',
+            data:{
+                arr:['china','japan','america','german'],
+                drink:[
+                    {name:"wine"},
+                    {name:"water"},
+                ],
+
+            },
+            method:{
+
+            },
+
+        })
+
+        var app_log = new Vue({
+            el:'#app_log',
+            methods: {
+                doIt:function(p1,p2){
+                    console.log("you press the button");
+                    console.log(p1,p2);
+
+
+                },
+            }
         })
     </script>
 </body>
