@@ -1,28 +1,41 @@
-<!-- 比较数字大小 -->
-<!-- 展示一张图片 -->
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
-<script src="https://unpkg.com/vue@next"></script>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 <body>
-<div id="hello-vue" class="demo">
-  {{ message }}
-  {{message_1}}
-</div>
-<script>
-const HelloVueApp = {
-  data() {
-    return {
-      message: 'Hello Vue!!',
-      message_1:'you can knoe message_1'
-    }
-  }
-}
+    <div id="app">
+        <button @click="sub">-</button>
+        <span>{{num}}</span>
+        <button @click="add">+</button>
+    </div>
 
-Vue.createApp(HelloVueApp).mount('#hello-vue')
-</script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data: {
+                num:1
+            },
+            methods: {
+                add:function(){
+                    if(this.num<10){
+                        this.num++;
+                    }
+                    else{
+                        alert('dont press,Max')
+                    }
+                },
+                sub:function(){
+                    if(this.num>0){
+                        this.num--;
+                    }
+                    else{
+                        alert('dont press,Min')
+                    }
+                }
+            },
+        })
+    </script>
 </body>
-</html>
