@@ -4,165 +4,29 @@
     <meta charset="utf-8">
     <title>Vue-Test</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <style>
-        .active{
-            border: 1px solid red;
-        }
-    </style>
 </head>
 <body>
-    <div id="app_list">
-        <ul>
-            <li v-for="item in arr">
-                {{item}}
-            </li>
-            <li v-for="(it,index) in drink">
-                {{index+1}}--{{it.name}}
-
-            </li>
-        </ul>
+    <div id="app">
+        <input type="text" v-model="message">
+        <input type="button" value="chang_func" @click="change_func">
+        <p>
+            {{message}}
+        </p>
 
     </div>
-
-    <div id="app_log">
-        <input type="button" value="press" @click="doIt('hello','world')">
-    </div>
-
-<!--    <div id="app"><button @click="sub">-</button><span>{{num}}</span><button @click="add">+</button></div>-->
-
-<!--    <div id="app_show">-->
-<!--        <button @click="changeisShow">img</button>-->
-<!--        <button @click="changeText">Text</button>-->
-<!--        <img v-show="isShow" src="img/girl.png" v-bind:title="imgTitle+',i love'" alt="">-->
-<!--        <p v-if="isShowText" :class="{active:isActive}" @click="toggleActive">Hello world</p>-->
-<!--    </div>-->
-
-<!--    <div id="app_img">-->
-<!--        <button @click="img_prev">prev</button>-->
-<!--        <button @click="img_next">next</button>-->
-<!--        <img :src="imgArr[index]"/>-->
-<!--    </div>-->
 
     <script>
         var app = new Vue({
             el:'#app',
-            data: {
-                num:1
-            },
-            methods: {
-                add:function(){
-                    if(this.num<10){
-                        this.num++;
-                    }
-                    else{
-                        alert('dont press,Max')
-                    }
-                },
-                sub:function(){
-                    if(this.num>0){
-                        this.num--;
-                    }
-                    else{
-                        alert('dont press,Min')
-                    }
-                }
-            },
-        })
-
-        var app_show = new Vue({
-            el:'#app_show',
             data:{
-                isShow:false,
-                isShowText:false,
-                isActive:false,
-                imgTitle:"girl",
-            },
-            methods: {
-                changeisShow:function(){
-                    this.isShow = !this.isShow;
-                },
-                changeText:function(){
-                    this.isShowText = !this.isShowText;
-                },
-                toggleActive:function(){
-                    this.isActive = !this.isActive;
-
-                },
-
-            }
-
-
-        })
-
-        var app_img = new Vue({
-            el:'#app_img',
-            data:{
-                imgArr:[
-                    "./img/01.png",
-                    "./img/02.png",
-                    "./img/03.png",
-                    "./img/04.png",
-                    "./img/05.png",
-                    "./img/06.png",
-                    "./img/07.png",
-                    "./img/08.png",
-                    "./img/09.png",
-                    "./img/10.png",
-                    "./img/11.png",
-                ],
-                index:0
-
+                message:"hello world",
             },
             methods:{
-                img_prev:function(){
-                    if(this.index>0){
-                        this.index--;
-                    }
-                    else{
-                        alert("min");
-                    }
-
-
-                },
-                img_next:function(){
-                    if(this.index<11){
-                        this.index++;
-                    }
-                    else{
-                        alert("Max");
-                    }
-
-                },
+                change_func:function(){
+                    this.message="fuck world"
+                }
 
             },
-        })
-
-        var app_list = new Vue({
-            el:'#app_list',
-            data:{
-                arr:['china','japan','america','german'],
-                drink:[
-                    {name:"wine"},
-                    {name:"water"},
-                ],
-
-            },
-            method:{
-
-            },
-
-        })
-
-        var app_log = new Vue({
-            el:'#app_log',
-            methods: {
-                doIt:function(p1,p2){
-                    console.log("you press the button");
-                    console.log(p1,p2);
-
-
-                },
-            }
         })
     </script>
 </body>
