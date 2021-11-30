@@ -1,0 +1,28 @@
+<!-- 比较数字大小 -->
+<!-- 展示一张图片 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+<div id="hello-vue" class="demo">
+  {{ message }}
+  {{message_1}}
+</div>
+<script>
+const HelloVueApp = {
+  data() {
+    return {
+      message: 'Hello Vue!!',
+      message_1:'you can knoe message_1'
+    }
+  }
+}
+
+Vue.createApp(HelloVueApp).mount('#hello-vue')
+</script>
+</body>
+</html>
